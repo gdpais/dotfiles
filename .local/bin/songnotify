@@ -1,0 +1,3 @@
+#!/bin/sh
+song=$(playerctl -p spotifyd metadata -f "Title: {{ title }}\nArtist: {{ artist }}")
+notify-send "Spotify" "$song" --icon=/home/gabs/.config/spotifyd/spotify48.png
