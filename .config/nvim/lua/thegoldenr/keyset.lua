@@ -4,8 +4,6 @@ local keymap = vim.keymap
 keymap.set("n", "<leader>y", "<cmd>%yank<cr>", { desc = "yank entire buffer" })
 keymap.set("x", "<leader>p", "\"_dP", { desc = "paste saving last register"})
 -- Move lines
---keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "move line up" })
---keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "move line down" })
 keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "move line up" })
 keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "move line down" })
 
@@ -28,8 +26,7 @@ keymap.set("n", "<leader>ec", ":Lexplore %:p:h<CR>", { desc = "Open Netrw in the
 keymap.set("n", "<leader>m", ":MarkdownPreviewToggle<CR>", { desc = "Toggles markdown preview" } )
 
 -- Save & Quit 
-keymap.set("n", "<leader>w", "<cmd>update<cr>", { desc = "save buffer" })
-keymap.set("i", "<C-s>", "<cmd>update<cr>", { desc = "save buffer" })
+keymap.set("n", "<leader>w", "<cmd>update<CR>", { desc = "save buffer" })
 keymap.set("n", "<leader>q", "<cmd>wq!<CR>", { desc = "save and quit"});
 keymap.set("n", "<leader>Q", "<cmd>q!<CR>", {desc = "force quit"});
 

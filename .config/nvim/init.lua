@@ -1,1 +1,1 @@
-require("thegoldenr")
+require "thegoldenr"

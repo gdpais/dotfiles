@@ -1,35 +1,47 @@
+local opt = vim.opt
+
 -- general
-vim.opt.wrap = true
-vim.opt.errorbells = false
-vim.opt.scrolloff = 8
-vim.opt.clipboard = "unnamedplus"
-vim.opt.mouse = "a"
-vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
-vim.opt.signcolumn = "yes"
-vim.opt.termguicolors = true
+opt.wrap = true
+opt.belloff = "all"
+opt.scrolloff = 8
+opt.clipboard = "unnamedplus"
+opt.mouse = "a"
+opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
+opt.signcolumn = "yes"
+opt.termguicolors = true
+opt.showcmd = true
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.shortmess:append "c"
 -- numbering
-vim.opt.nu = true
-vim.opt.relativenumber = true
+opt.nu = true
+opt.relativenumber = true
 -- tabs
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+opt.autoindent = true
+opt.breakindent = true -- eyes saver
+opt.showbreak = string.rep(" ", 3)
+opt.linebreak = true
+opt.cindent = true
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
 -- search
-vim.opt.smartindent = true
-vim.opt.incsearch = true
-vim.opt.hlsearch = false
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+opt.smartindent = true
+opt.incsearch = true
+opt.hlsearch = false
+opt.ignorecase = true
+opt.smartcase = true
 -- backups
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile =true
+opt.swapfile = false
+opt.backup = false
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+opt.undofile = true
+-- split preferences
+opt.splitright = false
+opt.splitbelow = true
 
--- Leader
-vim.g.mapleader = " "
+-- Cool floating window popup menu for completion on command line
+opt.pumblend = 17
+opt.wildmode = "longest:full"
+opt.wildoptions = "pum"
 
--- Netrw
-vim.g.netrw_winsize = 30
-vim.g.netrw_localcopydircmd = 'cp -r'

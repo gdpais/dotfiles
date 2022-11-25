@@ -1,5 +1,22 @@
-local keymap = vim.keymap
+if not pcall(require, "telescope") then
+    return
+end
 
-keymap.set("n", "<C-p>", ":Telescope<CR>")
---keymap.set("n", "<C-p>", function() require('telescope.builtin').git_files() end)
-keymap.set("n", "<leader>pf", function() require('telescope.builtin').find_files() end)
+local nmap = require "thegoldenr.keymap".nmap
+
+-- builtin
+nmap { "<leader>pf", require("thegoldenr.telescope").find_anything }
+
+nmap { "<leader>ps", require("thegoldenr.telescope").project_search }
+
+-- dotfiles
+nmap { "<leader>vrc", require("thegoldenr.telescope").search_nvim }
+nmap { "<leader>dt", require("thegoldenr.telescope").search_dotfiles }
+
+-- git
+nmap { "<leader>gb", require("thegoldenr.telescope").git_branches }
+nmap { "<leader>gf", require("thegoldenr.telescope").git_files }
+nmap { "<leader>gs",  require("thegoldenr.telescope").git_status }
+--nmap { "<leader>gw", require("telescope.builtin").extension.git_worktree.git_worktree }
+
+

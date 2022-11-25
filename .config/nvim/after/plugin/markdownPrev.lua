@@ -1,4 +1,4 @@
-local keymap = vim.keymap
+local nmap = require("thegoldenr.keymap").nmap
 local silent = { silent = true }
 
-keymap.set("n", "<leader>m", ":MarkdownPreviewToggle<CR>" , silent)
+nmap { "<leader>m", ":MarkdownPreviewToggle<CR>" , silent }
