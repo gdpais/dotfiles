@@ -118,6 +118,14 @@ M.search_nvim = function()
     })
 end
 
+M.search_notebook = function()
+    require("telescope.builtin").find_files({
+        prompt_title = "< MyNotebook >",
+        cwd = "~/personal/mynotebook",
+        hidden = true,
+    })
+end
+
 M.git_branches = function()
     require("telescope.builtin").git_branches({
         attach_mappings = function(_, map)
