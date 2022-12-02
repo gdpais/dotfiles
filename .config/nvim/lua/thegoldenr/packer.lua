@@ -6,6 +6,7 @@ return require('packer').startup(function(use)
     use("nvim-lua/popup.nvim")
     use("nvim-lualine/lualine.nvim")
     use("nvim-telescope/telescope.nvim")
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use("ThePrimeagen/harpoon")
 
     --Completion
@@ -20,7 +21,6 @@ return require('packer').startup(function(use)
     use("saadparwaiz1/cmp_luasnip")
     use("onsails/lspkind-nvim")
     use("simrat39/symbols-outline.nvim")
-    use "simrat39/symbols-outline.nvim"
 
     use("TimUntersberger/neogit")
     use("ThePrimeagen/git-worktree.nvim")
