@@ -82,6 +82,7 @@ require("telescope").setup({
     }
 })
 
+_ = require("telescope").load_extension("fzf")
 _ = require("telescope").load_extension("git_worktree")
 
 -- functions 
@@ -126,27 +127,25 @@ M.search_notebook = function()
     })
 end
 
+M.live_grep = function()
+    require("telescope.builtin").live_grep {
+        previewer = false,
+    }
+end
+
+-- git stuff
 M.git_branches = function()
     require("telescope.builtin").git_branches({
         attach_mappings = function(_, map)
             map("i", "<C-d>", actions.git_delete_branch)
             map("n", "<C-d>", actions.git_delete_branch)
+            return true
         end,
     })
 end
 
 M.git_files = function()
-    local path = vim.fn.expand "%:h"
-    if path == "" then
-        path = nil
-    end
-
-    local opts = themes.get_dropdown {
-        previewer = false,
-        shorten_path = false,
-        cwd = path,
-    }
-    require("telescope.builtin").git_files(opts)
+    require("telescope.builtin").git_files()
 end
 
 M.git_status = function()
@@ -162,19 +161,6 @@ end
 M.git_commits = function()
     require("telescope.builtin").git_commits {
         winblend = 5,
-    }
-end
-
-M.live_grep = function()
-    require("telescope.builtin").live_grep {
-        previewer = false,
-    }
-end
-
-M.project_search = function()
-    require("telescope.builtin").find_files {
-        previewer = false,
-        cwd = require("nvim_lsp.util").root_pattern ".git"(vim.fn.expand "%:p"),
     }
 end
 
