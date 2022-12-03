@@ -13,8 +13,8 @@ neogit.setup {
 }
 
 nmap { "<space>vv", ":DiffviewOpen<CR>" }
-nmap { "<leader>gs", neogit.open }
-nmap { "<leader>gc", function() neogit.open { "commit" } end }
+nmap { "<leader>ng", neogit.open }
+--nmap { "<leader>gc", function() neogit.open { "commit" } end }
 
 --hi NeogitNotificationInfo guifg=#80ff95
 --hi NeogitNotificationWarning guifg=#fff454

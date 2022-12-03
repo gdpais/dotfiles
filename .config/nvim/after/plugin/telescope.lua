@@ -16,4 +16,5 @@ nmap { "<leader>nb", require("thegoldenr.telescope").search_notebook }
 nmap { "<leader>gb", require("thegoldenr.telescope").git_branches }
 nmap { "<leader>gf", require("thegoldenr.telescope").git_files }
 nmap { "<leader>gs",  require("thegoldenr.telescope").git_status }
+nmap { "<leader>gc", require("airborne.telescope").git_commits }
 --nmap { "<leader>gw", require("telescope.builtin").extension.git_worktree.git_worktree }
