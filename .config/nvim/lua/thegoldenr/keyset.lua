@@ -16,11 +16,16 @@ keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", {desc ="get previous + center s
 -- Scroll & Centering
 keymap.set("n", "<C-u>" ,"<C-u>zz", { desc = "half page up + center screen" })
 keymap.set("n", "<C-d>","<C-d>zz", { desc = "half page down + center screen" })
+keymap.set("n", "n","nzzzv", { desc = "search next + center screen" })
+keymap.set("n", "N","Nzzzv", { desc = "search prev + center screen" })
+
 
 -- Netrw (:Explore)
 keymap.set("n", "<leader>ef", ":Explore<CR>", { desc = "Open Netrw in full size" })
 keymap.set("n", "<leader>ee", ":Lexplore<CR>", { desc = "Open Netrw in the working dir" })
 keymap.set("n", "<leader>ec", ":Lexplore %:p:h<CR>", { desc = "Open Netrw in the dir of the current file" })
+keymap.set("n", "<leader>ew", ":Ex ~/work<CR>", { desc = "Open full size Netrw in my work dir" })
+keymap.set("n", "<leader>ep", ":Ex ~/personal<CR>", { desc = "Open full size Netrw in my personal dir" })
 
 -- MarkdownPreview
 keymap.set("n", "<leader>m", ":MarkdownPreviewToggle<CR>", { desc = "Toggles markdown preview" } )

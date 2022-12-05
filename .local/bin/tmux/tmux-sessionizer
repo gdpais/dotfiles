@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+if [[ $# -eq 1 ]]; then
+    get=$1
+else
+    get=$(find ~/work ~/personal ~/personal/mynotebook ~/ ~/.config -mindepth 1 -maxdepth 1 -type d | fzf)
+fi
+
+if [[ -z $get ]]; then
+    exit 0
+fi
+
+session_name=$(basename "$get" | tr . _)
+
+if [[ -z $TMUX ]] && [[ -z $(pgrep tmux) ]]; then
+    tmux new -s $session_name -c $get
+    exit 0
+fi
+
+if ! tmux has -t=$session_name 2> /dev/null; then
+    tmux new -ds $session_name -c $get
+fi
+
+tmux switch-client -t $session_name
