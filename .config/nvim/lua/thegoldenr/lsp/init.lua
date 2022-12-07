@@ -3,7 +3,7 @@ if not lspconfig then
     return
 end
 
-local remap = require("thegoldenr.keymap")
+local remap = require("airborne.keymap")
 local nmap = remap.nmap
 --local imap = remap.imap
 
@@ -21,7 +21,6 @@ local function config(_config)
             nmap { "<space>dk", vim.diagnostic.goto_prev, opts }
             nmap { "<space>dj", vim.diagnostic.goto_next, opts }
             nmap { "<leader>r", vim.lsp.buf.rename, opts }
-            nmap { "<space>dl", "<cmd>Telescope diagnostics<CR>", opts }
             nmap { "<space>dl", "<cmd>Telescope diagnostics<CR>", opts }
 		end,
 	}, _config or {})
@@ -45,6 +44,13 @@ require("lspconfig").gopls.setup(config({
 
 require("lspconfig").rust_analyzer.setup(config({
 	cmd = { "rustup", "run", "nightly", "rust-analyzer" },
+    settings = {
+        rust = {
+            unstable_features = true,
+            build_on_save = false,
+            all_features = true,
+        },
+    }
 }))
 
 local sumneko_root_path = "/home/gabs/personal/lua-language-server"

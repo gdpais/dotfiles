@@ -7,11 +7,11 @@ lspkind.init()
 
 local cmp = require "cmp"
 local source_mapping = {
+    nvim_lua = "[Lua]",
+    nvim_lsp = "[LSP]",
+    cmp_tabnine = "[TN]",
+    path = "[Path]",
 	buffer = "[Buffer]",
-	nvim_lsp = "[LSP]",
-	nvim_lua = "[Lua]",
-	cmp_tabnine = "[TN]",
-	path = "[Path]",
 }
 
 cmp.setup {
@@ -44,14 +44,17 @@ cmp.setup {
 		end,
 	},
 
-    sources = {
-        { name = "buffer", keyword_length = 5 },
-        { name = "nvim_lsp" },
-        { name = "cmp_tabnine" },
-        { name = "nvim_lua" },
-        { name = "luasnip" },
-        { name = "path" },
-    },
+    sources = cmp.config.sources ({
+            { name = "nvim_lua" },
+            { name = "nvim_lsp" },
+            { name = "cmp_tabnine" },
+            { name = "luasnip" },
+        }, {
+            { name = "path" },
+            { name = "buffer", keyword_length = 5 },
+        }, {
+            { name = "gh_issues" },
+    }),
 
     sorting = {
         comparators = {

@@ -5,7 +5,7 @@ require "thegoldenr.keyset"
 require "thegoldenr.packer"
 
 -- lsp
-require "thegoldenr.lsp"
+--require "thegoldenr.lsp"
 
 -- telescope 
 require "thegoldenr.telescope"
