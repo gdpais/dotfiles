@@ -36,8 +36,8 @@ disk "/home" {
 }
 
 wireless wlo1 { 
-    format_up = "W:%quality"
-    #format_up = "W: %essid (%quality )"
+    #format_up = "W:%quality"
+    format_up = "W: %essid%quality"
     #format_up = "W: %essid (%quality, %bitrate )"
     format_down = "W: down"
 }

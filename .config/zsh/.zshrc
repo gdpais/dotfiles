@@ -85,6 +85,7 @@ precmd() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # Control bindings for programs
 bindkey -s "^h" "history 1\n"
 bindkey -s "^l" "clear\n"
+bindkey -s "^f" "tmux-sessionizer\n"
 
 # spaceship prompt
 SPACESHIP_PROMPT_ADD_NEWLINE=true

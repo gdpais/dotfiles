@@ -166,8 +166,10 @@ draw_bold_text_with_bright_colors: false
 colors:
   # Default colors
   primary:
-    background: '#191919'
-    foreground: '#d8dee9'
+    #background: '#191919'
+    #foreground: '#d8dee9'
+    background: '#1a1b26'
+    foreground: '#c0caf5'
 
     # Bright and dim foreground colors
     #
@@ -241,25 +243,41 @@ colors:
 
   # Normal colors
   normal:
-    black:   '#191919'
-    red:     '#b02626'
-    green:   '#40a62f'
-    yellow:  '#f2e635'
-    blue:    '#314ad0'
-    magenta: '#b30ad0'
-    cyan:    '#32d0fc'
-    white:   '#acadb1'
-
+    #black:   '#191919'
+    #red:     '#b02626'
+    #green:   '#40a62f'
+    #yellow:  '#f2e635'
+    #blue:    '#314ad0'
+    #magenta: '#b30ad0'
+    #cyan:    '#32d0fc'
+    #white:   '#acadb1'
+    black:   '#15161e'
+    red:     '#f7768e'
+    green:   '#9ece6a'
+    yellow:  '#e0af68'
+    blue:    '#7aa2f7'
+    magenta: '#bb9af7'
+    cyan:    '#7dcfff'
+    white:   '#a9b1d6'
+      
   # Bright colors
   bright:
-    black:   '#36393d'
-    red:     '#ce2727'
-    green:   '#47c930'
-    yellow:  '#fff138'
-    blue:    '#2e4bea'
-    magenta: '#cc15ed'
-    cyan:    '#54d9ff'
-    white:   '#dbdbdb'
+    #black:   '#36393d'
+    #red:     '#ce2727'
+    #green:   '#47c930'
+    #yellow:  '#fff138'
+    #blue:    '#2e4bea'
+    #magenta: '#cc15ed'
+    #cyan:    '#54d9ff'
+    #white:   '#dbdbdb'
+    black:   '#414868'
+    red:     '#f7768e'
+    green:   '#9ece6a'
+    yellow:  '#e0af68'
+    blue:    '#7aa2f7'
+    magenta: '#bb9af7'
+    cyan:    '#7dcfff'
+    white:   '#c0caf5'
 
   # Dim colors
   dim:
@@ -281,6 +299,9 @@ colors:
   #   `- { index: 16, color: '#ff00ff' }`
   #
   #indexed_colors: [{ index: 16, color: '#ff00ff' }]
+  indexed_colors: 
+   - { index: 16, color: '#ff9e64'}
+   - { index: 17, color: '#db4b4b'}
   
   # Transparent cell backgrounds
   #
