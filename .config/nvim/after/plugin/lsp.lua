@@ -11,6 +11,25 @@ lsp.ensure_installed({
 })
 
 --lsp.preset('recommended')
+
+local cmp = require('cmp')
+local cmp_select = { behavior = cmp.SelectBehavior.Insert }
+local cmp_mappings = lsp.defaults.cmp_mappings({
+    ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+    ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+    ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-d>"] = cmp.mapping.scroll_docs(4),
+    ["<C-m>"] = cmp.mapping.confirm( {select = true } ),
+    --["<C-Space>"] = cmp.mapping.complete(),
+})
+
+cmp_mappings['<Tab>'] = nil
+cmp_mappings['<S-Tab>'] = nil
+
+lsp.setup_nvim_cmp({
+    mapping = cmp_mappings
+})
+
 lsp.set_preferences({
     suggest_lsp_servers = true,
     setup_servers_on_start = true,
@@ -25,22 +44,6 @@ lsp.set_preferences({
         hint = '⚑',
         info = ''
     }
-})
-
-
-local cmp = require('cmp')
-local cmp_select = { behavior = cmp.SelectBehavior.Insert }
-local cmp_mappings = lsp.defaults.cmp_mappings({
-    ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-    ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-    ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-d>"] = cmp.mapping.scroll_docs(4),
-    ["<C-y>"] = cmp.mapping.confirm( {select = true } ),
-    ["<C-Space>"] = cmp.mapping.complete(),
-})
-
-lsp.setup_nvim_cmp({
-    mapping = cmp_mappings
 })
 
 local keymaps = require("obimel.keymap")
@@ -68,3 +71,12 @@ end)
 
 lsp.nvim_workspace()
 lsp.setup()
+
+vim.diagnostic.config({
+    virtual_text = true,
+--    signs = true,
+--    update_in_insert = false,
+--    underline = true,
+--    severity_sort = false,
+--    float = true,
+})
