@@ -1,1 +1,1 @@
-require"thegoldenr.keymap".nmap { "<leader>u", "<cmd>UndotreeToggle<CR>" }
+require("obimel.keymap").nmap { "<leader>u", vim.cmd.UndotreeToggle }

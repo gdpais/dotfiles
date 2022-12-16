@@ -4,7 +4,7 @@ if not ok then
     return
 end
 
-local nmap = require("airborne.keymap").nmap
+local nmap = require("obimel.keymap").nmap
 local silent = { silent = true }
 
 nmap { "<leader>a", function() require("harpoon.mark").add_file() end, silent }

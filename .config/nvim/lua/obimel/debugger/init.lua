@@ -1,10 +1,10 @@
--- TODO: configurations + refact
+--TODO: refact
 local ok, dap = pcall(require, "dap")
 if not ok then
     return
 end
 
-local nmap = require("airborne.keymap").nmap
+local nmap = require("obimel.keymap").nmap
 
 -- fancy fancy <3 ty tj 
 vim.fn.sign_define("DapBreakpoint", { text = "ß", texthl = "", linehl = "", numhl = "" })
@@ -46,6 +46,8 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
     dap_ui.close()
 end
+
+require "obimel.debugger.node"
 
 nmap { "<F4>", function()
     dap_ui.toggle(1)

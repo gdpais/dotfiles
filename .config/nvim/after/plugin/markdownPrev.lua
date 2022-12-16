@@ -1,4 +1,1 @@
-local nmap = require("thegoldenr.keymap").nmap
-local silent = { silent = true }
-
-nmap { "<leader>m", ":MarkdownPreviewToggle<CR>" , silent }
+require("obimel.keymap").nmap { "<leader>m", "<cmd>MarkdownPreviewToggle<CR>" , {silent = true}}

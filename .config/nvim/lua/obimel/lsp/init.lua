@@ -3,7 +3,7 @@ if not lspconfig then
     return
 end
 
-local remap = require("airborne.keymap")
+local remap = require("obimel.keymap")
 local nmap = remap.nmap
 --local imap = remap.imap
 

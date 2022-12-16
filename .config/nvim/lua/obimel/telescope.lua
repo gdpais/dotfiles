@@ -3,7 +3,7 @@ if not pcall(require, "telescope") then
 end
 
 local actions = require "telescope.actions"
-local themes = require "telescope.themes"
+--local themes = require "telescope.themes"
 
 require("telescope").setup({
     defaults = {
@@ -50,7 +50,8 @@ require("telescope").setup({
                 ["<C-x>"] = false,
                 ["<C-q>"] = actions.send_to_qflist,
 
-                ["<C-n>"] = "move_selection_next",
+                ["<C-n>"] = actions.move_selection_next,
+                ["<C-p>"] = actions.move_selection_previous,
                 ["<CR>"] = actions.select_default,
 
                 --["<C-e>"] = actions.results_scrolling_down,
@@ -82,8 +83,8 @@ require("telescope").setup({
     }
 })
 
-_ = require("telescope").load_extension("fzf")
-_ = require("telescope").load_extension("git_worktree")
+require("telescope").load_extension("fzf")
+require("telescope").load_extension("git_worktree")
 
 -- functions 
 local M = {}
@@ -127,9 +128,25 @@ M.search_notebook = function()
     })
 end
 
+M.search_work = function()
+    require("telescope.builtin").find_files({
+        prompt_title = "< Work >",
+        cwd = "~/work",
+        previewer = false,
+    })
+end
+
 M.live_grep = function()
     require("telescope.builtin").live_grep {
         previewer = false,
+    }
+end
+
+M.grep_str = function()
+    require("telescope.builtin").grep_string {
+        --previewer = false,
+        hide = true,
+        shorten_path = false,
     }
 end
 
@@ -149,13 +166,9 @@ M.git_files = function()
 end
 
 M.git_status = function()
-    local opts = themes.get_dropdown{
-        winblend = 10,
-        --border = true,
-        previewer = false,
-        sorten_path = false,
-    }
-    require("telescope.builtin").git_status(opts)
+    require("telescope.builtin").git_status({
+        shorten_path = false,
+    })
 end
 
 M.git_commits = function()
@@ -164,26 +177,27 @@ M.git_commits = function()
     }
 end
 
-M.lsp_references = function()
-    require("telescope.builtin").lsp_references {
-        layout_strategy = "vertical",
-        layout_config = {
-            prompt_position = "top",
-        },
-        sorting_strategy = "ascending",
-        ignore_filename = false,
-    }
-end
-
-M.lsp_implementations = function()
-    require("telescope.builtin").lsp_implementations {
-        layout_strategy = "vertical",
-        layout_config = {
-            prompt_position = "top",
-        },
-        sorting_strategy = "ascending",
-        ignore_filename = false,
-    }
-end
+-- Not used ATM
+--M.lsp_references = function()
+--    require("telescope.builtin").lsp_references {
+--        layout_strategy = "vertical",
+--        layout_config = {
+--            prompt_position = "top",
+--        },
+--        sorting_strategy = "ascending",
+--        ignore_filename = false,
+--    }
+--end
+--
+--M.lsp_implementations = function()
+--    require("telescope.builtin").lsp_implementations {
+--        layout_strategy = "vertical",
+--        layout_config = {
+--            prompt_position = "top",
+--        },
+--        sorting_strategy = "ascending",
+--        ignore_filename = false,
+--    }
+--end
 
 return M

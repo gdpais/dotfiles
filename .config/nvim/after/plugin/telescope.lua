@@ -3,19 +3,22 @@ if not ok then
     return
 end
 
-local nmap = require "thegoldenr.keymap".nmap
+local my_telescope = require"obimel.telescope"
+local nmap = require"obimel.keymap".nmap
 
-nmap { "<leader>pf", require("thegoldenr.telescope").find_anything }
-nmap { "<leader>lg", require("thegoldenr.telescope").live_grep }
+nmap { "<leader>pf", my_telescope.find_anything }
+nmap { "<leader>lg", my_telescope.live_grep }
+nmap { "<leader>ps", my_telescope.grep_str }
 
 -- dotfiles + projects
-nmap { "<leader>vrc", require("thegoldenr.telescope").search_nvim }
-nmap { "<leader>dt", require("thegoldenr.telescope").search_dotfiles }
-nmap { "<leader>nb", require("thegoldenr.telescope").search_notebook }
+nmap { "<leader>vrc", my_telescope.search_nvim }
+nmap { "<leader>dt", my_telescope.search_dotfiles }
+nmap { "<leader>nb", my_telescope.search_notebook }
+nmap { "<leader>pw", my_telescope.search_work }
 
 -- git
-nmap { "<leader>gb", require("thegoldenr.telescope").git_branches }
-nmap { "<leader>gf", require("thegoldenr.telescope").git_files }
-nmap { "<leader>gs",  require("thegoldenr.telescope").git_status }
-nmap { "<leader>gc", require("airborne.telescope").git_commits }
+nmap { "<leader>gb", my_telescope.git_branches }
+nmap { "<leader>gf", my_telescope.git_files }
+nmap { "<leader>gs", my_telescope.git_status }
+nmap { "<leader>gc", my_telescope.git_commits }
 nmap { "<leader>gw", function() telescope.extensions.git_worktree.git_worktrees() end }

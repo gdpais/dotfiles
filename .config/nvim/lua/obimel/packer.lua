@@ -45,7 +45,7 @@ return require('packer').startup(function(use)
 
     --Highlighting
     use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
-    use "nvim-treesitter/playground" -- Change treesitter colors
+    use "nvim-treesitter/playground"
     use { "norcalli/nvim-colorizer.lua" , config = function () require'colorizer'.setup() end }
 
     --Colorscheme

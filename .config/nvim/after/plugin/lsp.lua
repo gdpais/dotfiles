@@ -3,29 +3,30 @@ if not ok then
     return
 end
 
---lsp.preset('recommended')
-lsp.set_preferences({
-  suggest_lsp_servers = true,
-  setup_servers_on_start = true,
-  set_lsp_keymaps = true,
-  configure_diagnostics = true,
-  cmp_capabilities = true,
-  manage_nvim_cmp = true,
-  call_servers = 'local',
-  sign_icons = {
-    error = '✘',
-    warn = '▲',
-    hint = '⚑',
-    info = ''
-  }
-})
-
 lsp.ensure_installed({
     'tsserver',
     'eslint',
     'sumneko_lua',
     'rust_analyzer',
 })
+
+--lsp.preset('recommended')
+lsp.set_preferences({
+    suggest_lsp_servers = true,
+    setup_servers_on_start = true,
+    set_lsp_keymaps = true,
+    configure_diagnostics = true,
+    cmp_capabilities = true,
+    manage_nvim_cmp = true,
+    call_servers = 'local',
+    sign_icons = {
+        error = '✘',
+        warn = '▲',
+        hint = '⚑',
+        info = ''
+    }
+})
+
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Insert }
@@ -42,7 +43,7 @@ lsp.setup_nvim_cmp({
     mapping = cmp_mappings
 })
 
-local keymaps = require("thegoldenr.keymap")
+local keymaps = require("obimel.keymap")
 local imap = keymaps.imap
 local nmap = keymaps.nmap
 
