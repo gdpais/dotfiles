@@ -1,1 +1,1 @@
-require"airborne.keymap".nmap { "<leader>u", "<cmd>UndotreeToggle<CR>" }
+require"thegoldenr.keymap".nmap { "<leader>u", "<cmd>UndotreeToggle<CR>" }
