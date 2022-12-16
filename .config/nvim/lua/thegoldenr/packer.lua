@@ -8,6 +8,7 @@ return require('packer').startup(function(use)
     use "nvim-telescope/telescope.nvim"
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use "ThePrimeagen/harpoon"
+    use "mbbill/undotree"
 
     --Completion
     --use "onsails/lspkind-nvim"
@@ -36,14 +37,15 @@ return require('packer').startup(function(use)
     }
     use { "tzachar/cmp-tabnine",  run = "./install.sh" , requires = "hrsh7th/nvim-cmp"}
 
-
-    use "TimUntersberger/neogit"
+    -- Git
+    --use "TimUntersberger/neogit"
     use "ThePrimeagen/git-worktree.nvim"
     use "sindrets/diffview.nvim"
+    use "tpope/vim-fugitive"
 
     --Highlighting
     use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
-    --use "nvim-treesitter/playground" -- Change treesitter colors
+    use "nvim-treesitter/playground" -- Change treesitter colors
     use { "norcalli/nvim-colorizer.lua" , config = function () require'colorizer'.setup() end }
 
     --Colorscheme
