@@ -9,6 +9,7 @@ return require('packer').startup(function(use)
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use "ThePrimeagen/harpoon"
     use "mbbill/undotree"
+    --use "machakann/vim-sandwich"
 
     --Completion
     --use "onsails/lspkind-nvim"
@@ -35,6 +36,15 @@ return require('packer').startup(function(use)
             {'rafamadriz/friendly-snippets'},
         }
     }
+
+    --use {
+    --    "zbirenbaum/copilot-cmp",
+    --    after = { "copilot.lua" },
+    --    config = function ()
+    --        require("copilot_cmp").setup()
+    --    end
+    --}
+
     use { "tzachar/cmp-tabnine",  run = "./install.sh" , requires = "hrsh7th/nvim-cmp"}
 
     -- Git
