@@ -9,7 +9,7 @@ return require('packer').startup(function(use)
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use "ThePrimeagen/harpoon"
     use "mbbill/undotree"
-    --use "machakann/vim-sandwich"
+    use "machakann/vim-sandwich"
 
     --Completion
     --use "onsails/lspkind-nvim"
@@ -37,15 +37,22 @@ return require('packer').startup(function(use)
         }
     }
 
+    use {
+        "zbirenbaum/copilot.lua",
+        config = function()
+            require("copilot").setup()
+        end,
+    }
+
     --use {
     --    "zbirenbaum/copilot-cmp",
     --    after = { "copilot.lua" },
-    --    config = function ()
+    --    config = function()
     --        require("copilot_cmp").setup()
-    --    end
+    --    end,
     --}
 
-    use { "tzachar/cmp-tabnine",  run = "./install.sh" , requires = "hrsh7th/nvim-cmp"}
+    --use { "tzachar/cmp-tabnine",  run = "./install.sh" , requires = "hrsh7th/nvim-cmp"}
 
     -- Git
     --use "TimUntersberger/neogit"
@@ -54,7 +61,7 @@ return require('packer').startup(function(use)
     use "tpope/vim-fugitive"
 
     --Highlighting
-    use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
+    use({"nvim-treesitter/nvim-treesitter",  run = ":TSUpdate" })
     use "nvim-treesitter/playground"
     use { "norcalli/nvim-colorizer.lua" , config = function () require'colorizer'.setup() end }
 
