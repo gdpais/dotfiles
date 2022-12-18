@@ -4,7 +4,9 @@ require "obimel.options"
 require "obimel.keyset"
 require "obimel.packer"
 
--- telescope 
+require "obimel.darkmagic"
+
+-- telescope
 require "obimel.telescope"
 
 -- dap
