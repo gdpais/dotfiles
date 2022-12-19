@@ -16,3 +16,14 @@ autocmd("BufWritePre", {
     pattern = "*",
     command = [[%s/$\n\+\%$//e]]
 })
+
+-- autoformat
+autocmd("BufWritePre", {
+    group = darkMagic,
+    pattern = "*",
+    callback = function()
+        vim.lsp.buf.format {
+            async = false,
+        }
+    end
+})
