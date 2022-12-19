@@ -6,7 +6,7 @@
 local nmap = require("obimel.keymap").nmap
 
 nmap { "<space>vv", "<cmd>DiffviewOpen<CR>" }
-nmap { "<leader>ga", "<cmd>Git add .<CR> <cmd>Git commit<CR>" }
+nmap { "<leader>ga", "<cmd>Git add . <bar> Git commit<CR>" }
 
 --neogit.setup {
 --  integrations = {
