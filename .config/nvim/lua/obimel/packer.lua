@@ -11,6 +11,10 @@ return require('packer').startup(function(use)
     use "mbbill/undotree"
     use "machakann/vim-sandwich"
 
+    -- Focus
+    use "folke/twilight.nvim"
+    use "folke/zen-mode.nvim"
+
     --Completion
     --use "onsails/lspkind-nvim"
     --use "simrat39/symbols-outline.nvim"
@@ -44,14 +48,13 @@ return require('packer').startup(function(use)
         end,
     }
 
-    --use {
-    --    "zbirenbaum/copilot-cmp",
-    --    after = { "copilot.lua" },
-    --    config = function()
-    --        require("copilot_cmp").setup()
-    --    end,
-    --}
-
+  --  use {
+  --      "zbirenbaum/copilot-cmp",
+  --      after = { "copilot.lua" },
+  --      config = function()
+  --          require("copilot_cmp").setup()
+  --      end,
+  --  }
     --use { "tzachar/cmp-tabnine",  run = "./install.sh" , requires = "hrsh7th/nvim-cmp"}
 
     -- Git
@@ -59,6 +62,7 @@ return require('packer').startup(function(use)
     use "ThePrimeagen/git-worktree.nvim"
     use "sindrets/diffview.nvim"
     use "tpope/vim-fugitive"
+    --use "lewis6991/gitsigns.nvim"
 
     --Highlighting
     use({"nvim-treesitter/nvim-treesitter",  run = ":TSUpdate" })
