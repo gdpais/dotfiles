@@ -11,6 +11,7 @@ require("diffview").setup {
 
 nmap { "<space>vv", "<cmd>DiffviewOpen<CR>" }
 nmap { "<leader>ga", "<cmd>Git add . <bar> Git commit<CR>" }
+nmap { "<leader>gp", "<cmd>Git push<CR>" }
 
 --neogit.setup {
 --  integrations = {
