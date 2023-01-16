@@ -5,6 +5,10 @@
 
 local nmap = require("obimel.keymap").nmap
 
+require("diffview").setup {
+    use_icons = false,
+}
+
 nmap { "<space>vv", "<cmd>DiffviewOpen<CR>" }
 nmap { "<leader>ga", "<cmd>Git add . <bar> Git commit<CR>" }
 

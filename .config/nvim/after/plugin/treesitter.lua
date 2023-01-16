@@ -1,6 +1,20 @@
 require('nvim-treesitter.configs').setup {
-    -- This really needs to be changed :'(
-    ensure_installed = "all",
+    ensure_installed = {
+        "go",
+        "help",
+        "html",
+        "javascript",
+        "json",
+        "markdown",
+        "python",
+        "query",
+        "rust",
+        "toml",
+        "tsx",
+        "typescript",
+        "vim",
+    },
+
     sync_install = false,
 
     highlight = {

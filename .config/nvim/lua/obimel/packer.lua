@@ -10,6 +10,8 @@ return require('packer').startup(function(use)
     use "ThePrimeagen/harpoon"
     use "mbbill/undotree"
     use "machakann/vim-sandwich"
+    --use "numToStr/Comment.nvim"
+    use "folke/todo-comments.nvim"
 
     -- Focus
     use "folke/twilight.nvim"
