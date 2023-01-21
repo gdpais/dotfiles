@@ -12,8 +12,8 @@
 #set $mod Mod4
 set $mod Mod1
 
-# Borders 
-for_window [class=".*"] border pixel 2
+# Borders
+for_window [class=".*"] border pixel 0
 
 # Opacity
 exec --no-startup-id picom -b --config ~/.config/picom/picom.conf
@@ -198,7 +198,8 @@ bindsym $mod+r mode "resize"
 bar {
         position top
         #mode hide
-        status_command i3status 
+        status_command i3status
+
 }
 #exec ~/.config/polybar/launch.sh
 
