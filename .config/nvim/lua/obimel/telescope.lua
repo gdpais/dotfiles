@@ -72,13 +72,19 @@ require("telescope").setup({
             limit = 100,
         },
 
-        extensions = {
-            ["ui-select"] = {
-                require("telescope.themes").get_dropdown {
-                    -- more opts
-                },
-            },
-        },
+--        extensions = {
+--            ["ui-select"] = {
+--                require("telescope.themes").get_dropdown {
+--                    -- more opts
+--                    borderchars = {
+--                        { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+--                        prompt = {"─", "│", " ", "│", '┌', '┐', "│", "│"},
+--                        results = {"─", "│", "─", "│", "├", "┤", "┘", "└"},
+--                        preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+--                    },
+--                },
+--            },
+--        },
 
     }
 })
@@ -86,7 +92,7 @@ require("telescope").setup({
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("git_worktree")
 
--- functions 
+-- functions
 local M = {}
 
 function M.reload_modules()
