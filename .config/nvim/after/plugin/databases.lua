@@ -39,7 +39,7 @@ local vmap = keymap.vmap
 -- add password
 local passwd = ""
 local url = "jdbc:sqlserver://localhost;encrypt=true;user=sa;password=" .. passwd .. ";integratedSecurity=true;encrypt=true;trustServerCertificate=true;"
+
 --nmap { "<leader>db", function() vim.cmd('DBUIToggle') end }
---vmap { "<leader>db", "<cmd>'<,'>DB " .. url .. "<CR>" }
 vmap { "<leader>db", ":'<,'>DB " .. url .. "<CR>" }
 nmap { "<leader>db", ":%DB " .. url .. "<CR>" }
