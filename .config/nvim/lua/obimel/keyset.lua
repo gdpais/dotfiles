@@ -34,10 +34,13 @@ nmap { "<leader>ec", ":Lexplore %:p:h<CR>", { desc = "Open Netrw in the dir of t
 nmap { "<leader>ew", ":Ex ~/work<CR>", { desc = "Open full size Netrw in my work dir" } }
 nmap { "<leader>ep", ":Ex ~/personal<CR>", { desc = "Open full size Netrw in my personal dir" } }
 
+-- Tab
+nmap { "<leader>cn", "<cmd>tabc<CR>", { desc = "Tab close" } }
+
 -- MarkdownPreview
 nmap { "<leader>m", ":MarkdownPreviewToggle<CR>", { desc = "Toggles markdown preview" }  }
 
--- Save & Quit 
+-- Save & Quit
 nmap { "<leader>w", "<cmd>update<CR>", { desc = "save buffer" } }
 nmap { "<leader>q", "<cmd>wq!<CR>", { desc = "save and quit"} }
 nmap { "<leader>Q", "<cmd>q!<CR>", { desc = "force quit" } }
