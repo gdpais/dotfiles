@@ -13,6 +13,7 @@ require('nvim-treesitter.configs').setup {
         "tsx",
         "typescript",
         "vim",
+        "lua"
     },
 
     sync_install = false,

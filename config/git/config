@@ -1,0 +1,35 @@
+[user]
+    email = theobimel@gmail.com
+    name = theobimel
+[core]
+    editor = nvim
+    pager = delta
+
+[pull]
+    rebase = true
+
+[rebase]
+    autoStash = true
+
+[alias]
+    # Thanks r00k / tjdevries, this creates a pretty graph view of the log
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+
+[push]
+    default = current
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false
+    line-numbers = true
+    #side-by-side = false
+    file-modified-label = modified:
+
+[merge]
+    conflictstyle = diff3
+
+[interactive]
+    diffFilter = delta --color-only
+
+[diff]
+    colorMoved = default

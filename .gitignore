@@ -1,1 +1,11 @@
 */nvim/plugin/packer_compiled.lua
+
+config/dconf/*
+config/discord/*
+config/libfm/*
+config/pulse/*
+config/gtk-3.0/
+config/BraveSoftware/
+config/yay/
+config/light/
+config/mimeapps.list

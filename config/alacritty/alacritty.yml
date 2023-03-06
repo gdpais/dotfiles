@@ -48,7 +48,7 @@ window:
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
-    
+
   # Background opacity
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
@@ -106,13 +106,13 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    # Font family 
+    # Font family
     #
-    # Default : 
+    # Default :
     #   - (macOS) Menlo
     #   - (linux/BSD) monospace
     family: JetBrains Mono Nerd Font
-      
+
     # The `style` can be specified to pick a specific face
     style: Medium
 
@@ -259,7 +259,7 @@ colors:
     magenta: '#bb9af7'
     cyan:    '#7dcfff'
     white:   '#a9b1d6'
-      
+
   # Bright colors
   bright:
     #black:   '#36393d'
@@ -299,10 +299,10 @@ colors:
   #   `- { index: 16, color: '#ff00ff' }`
   #
   #indexed_colors: [{ index: 16, color: '#ff00ff' }]
-  indexed_colors: 
+  indexed_colors:
    - { index: 16, color: '#ff9e64'}
    - { index: 17, color: '#db4b4b'}
-  
+
   # Transparent cell backgrounds
   #
   # Whether or not `window.opacity` applies to all cell backgrounds or only to
@@ -362,7 +362,7 @@ selection:
 
 cursor:
   # Cursor style
-  style: 
+  style:
     # Cursor shape
     #
     # Values for `shape`:
@@ -385,17 +385,17 @@ cursor:
   # If the vi mode cursor style is `None` or not specified, it will fall back to
   # the style of the active value of the normal cursor.
   #
-  # See `cursor.style` for available options.    
-  vi_mode_style: Block 
+  # See `cursor.style` for available options.
+  vi_mode_style: Block
 
   # Cursor blinking interval in milliseconds.
   #blink_interval: 750
-    
+
   # Time after which cursor stops blinking, in seconds.
   #
   # Specifying '0' will disable timeout for blinking.
   #blink_timeout: 1
-      
+
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
   unfocused_hollow: true

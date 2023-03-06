@@ -6,7 +6,7 @@ end
 lsp.ensure_installed({
     'tsserver',
     'eslint',
-    'sumneko_lua',
+    --'lua-language-server',
     'rust_analyzer',
 })
 
@@ -15,11 +15,11 @@ lsp.ensure_installed({
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Insert }
 local cmp_mappings = lsp.defaults.cmp_mappings({
-    ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-    ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-    ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-d>"] = cmp.mapping.scroll_docs(4),
-    ["<C-m>"] = cmp.mapping.confirm( {select = true } ),
+        ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+        ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+        ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-d>"] = cmp.mapping.scroll_docs(4),
+        ["<C-m>"] = cmp.mapping.confirm({ select = true }),
     --["<C-Space>"] = cmp.mapping.complete(),
 })
 
@@ -74,9 +74,9 @@ lsp.setup()
 
 vim.diagnostic.config({
     virtual_text = true,
---    signs = true,
---    update_in_insert = false,
---    underline = true,
---    severity_sort = false,
---    float = true,
+    --    signs = true,
+    --    update_in_insert = false,
+    --    underline = true,
+    --    severity_sort = false,
+    --    float = true,
 })

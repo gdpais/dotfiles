@@ -20,6 +20,7 @@ return require('packer').startup(function(use)
     --use "onsails/lspkind-nvim"
     --use "simrat39/symbols-outline.nvim"
 
+    --TODO: use "folke/neodev.nvim"
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
@@ -42,12 +43,12 @@ return require('packer').startup(function(use)
         }
     }
 
-    use {
-        "zbirenbaum/copilot.lua",
-        config = function()
-            require("copilot").setup()
-        end,
-    }
+    --use {
+    --    "zbirenbaum/copilot.lua",
+    --    config = function()
+    --        require("copilot").setup()
+    --    end,
+    --}
 
     --  use {
     --      "zbirenbaum/copilot-cmp",
@@ -70,12 +71,21 @@ return require('packer').startup(function(use)
     --use "kristijanhusak/vim-dadbod-ui"
 
     --Highlighting
-    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+    use({
+        "nvim-treesitter/nvim-treesitter",
+        run = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end
+    })
     use "nvim-treesitter/playground"
     use { "norcalli/nvim-colorizer.lua", config = function() require 'colorizer'.setup() end }
 
     --Colorscheme
     use "folke/tokyonight.nvim"
+    --TODO: Try it later
+    --use "tjdevries/colorbuddy.nvim"
+    -- Color example: gruvbody.nvim
 
     -- Debug adapter protocol
     use "mfussenegger/nvim-dap"
@@ -83,6 +93,10 @@ return require('packer').startup(function(use)
     use "theHamsta/nvim-dap-virtual-text"
 
     --Markdown
-    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
-        setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = "cd app && npm install",
+        setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+        ft = { "markdown" },
+    })
 end)
