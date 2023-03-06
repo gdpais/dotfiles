@@ -6,8 +6,6 @@
     - nvim (lua)
     - zsh 
     - lf (file manager)
-    - alacritty
-    - i3
+    - alacritty / kitty
+    - i3 / awesome
     - polybar
-    - dunst (notification daemon)
-    - picom (compositor for X11)
