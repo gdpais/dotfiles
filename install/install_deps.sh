@@ -32,10 +32,10 @@ if ! [ -d $HOME/build/neovim ]; then
 fi
 
 # Git extend
-if ! [ -d ~/builds/delta ]; then
-  git clone https://github.com/dandavison/delta ~/builds/delta
+if ! [ -d ~/build/delta ]; then
+  git clone https://github.com/dandavison/delta ~/build/delta
 
-  cd ~/builds/delta
+  cd ~/build/delta
   cargo install --path .
 fi
 
