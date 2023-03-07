@@ -19,6 +19,8 @@ if [[ $MOVE_CONFIG ]]; then
 fi
 
 # Home files
-if [[ -f "~/.zshenv" ]]; then
-    ln -sv ~/personal/dotfiles/.zshenv ~/.zshenv
+if [[ -f "$HOME/.zshenv" ]]; then
+    rm $HOME/.zshenv
 fi
+
+ln -sv ~/personal/dotfiles/.zshenv ~/.zshenv

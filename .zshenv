@@ -13,6 +13,7 @@ export XDG_ENV_HOME=$HOME/
 PATH="${$(find ~/.local/bin -type d -printf %p:)%%:}:$PATH" #:$(find ~/.cargo/bin -type d)
 
 . "$HOME/.cargo/env"
+
 #case ":${PATH}:" in
 #    *:"$HOME/.cargo/bin":*)
 #        ;;
@@ -21,3 +22,5 @@ PATH="${$(find ~/.local/bin -type d -printf %p:)%%:}:$PATH" #:$(find ~/.cargo/bi
 #        export PATH="$HOME/.cargo/bin:$PATH"
 #        ;;
 #esac
+
+[ -d /usr/local/go/bin ] && PATH=$PATH:/usr/local/go/bin

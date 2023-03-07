@@ -1,5 +1,8 @@
 */nvim/plugin/packer_compiled.lua
 
+.zcompdump
+.zshrc.zwc
+
 config/dconf/*
 config/discord/*
 config/libfm/*
@@ -9,3 +12,9 @@ config/BraveSoftware/
 config/yay/
 config/light/
 config/mimeapps.list
+config/.gsd-keyboard.*
+config/evolution/
+config/gnome-control-center/
+config/gnome-initial-setup-done
+config/ibus/
+config/user-dirs.*
