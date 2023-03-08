@@ -20,7 +20,7 @@ return require('packer').startup(function(use)
     --use "onsails/lspkind-nvim"
     --use "simrat39/symbols-outline.nvim"
 
-    --TODO: use "folke/neodev.nvim"
+    use "folke/neodev.nvim"
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
@@ -82,9 +82,9 @@ return require('packer').startup(function(use)
     use { "norcalli/nvim-colorizer.lua", config = function() require 'colorizer'.setup() end }
 
     --Colorscheme
-    use "folke/tokyonight.nvim"
-    --TODO: Try it later
-    --use "tjdevries/colorbuddy.nvim"
+    --use "folke/tokyonight.nvim"
+    use "tjdevries/colorbuddy.nvim"
+    use "tjdevries/gruvbuddy.nvim"
     -- Color example: gruvbody.nvim
 
     -- Debug adapter protocol

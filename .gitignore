@@ -18,3 +18,4 @@ config/gnome-control-center/
 config/gnome-initial-setup-done
 config/ibus/
 config/user-dirs.*
+config/spotify

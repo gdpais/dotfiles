@@ -1,3 +1,5 @@
+require("neodev").setup({})
+
 local ok, lsp = pcall(require, 'lsp-zero')
 if not ok then
     return
@@ -11,6 +13,23 @@ lsp.ensure_installed({
 })
 
 --lsp.preset('recommended')
+lsp.preset({
+    name = 'minimal',
+    set_lsp_keymaps = true,
+    manage_nvim_cmp = true,
+    suggest_lsp_servers = true,
+})
+
+-- example to setup lua_ls and enable call snippets
+lsp.configure("lua_ls", {
+    settings = {
+        Lua = {
+            completion = {
+                callSnippet = "Replace"
+            }
+        }
+    }
+})
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Insert }
@@ -21,10 +40,11 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
         ["<C-d>"] = cmp.mapping.scroll_docs(4),
         ["<C-m>"] = cmp.mapping.confirm({ select = true }),
     --["<C-Space>"] = cmp.mapping.complete(),
+        ['<Tab>'] = vim.NIL,
+        ['<S-Tab>'] = vim.NIL,
+        ['<CR>'] = vim.NIL
 })
 
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
 
 lsp.setup_nvim_cmp({
     mapping = cmp_mappings

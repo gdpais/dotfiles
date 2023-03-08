@@ -4,7 +4,7 @@
 #   http://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
 alias sudo='sudo '
 
-# Go to the /home/$USER (~) directory, clears the terminal window 
+# Go to the /home/$USER (~) directory, clears the terminal window
 alias q="~ && clear"
 #alias cl="clear && paleofetch"
 
@@ -14,7 +14,7 @@ alias q="~ && clear"
 [ -d ~/work ]                 && alias w='cd ~/work'
 [ -d ~/.config ]              && alias conf='cd ~/.config'
 
-# nvim 
+# nvim
 alias n='nvim'
 alias nr='nvim -R'
 
@@ -31,7 +31,8 @@ alias gpull="git pull"
 alias gpr="git pull --rebase"
 alias gpush="git push"
 alias gd="git diff"
-alias gadd="git add"
+alias gadd="git add ."
+alias gca='git add . && git commit -av'
 alias gundo='git reset HEAD~'
 # Logging helpers
 alias glg='git log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat'

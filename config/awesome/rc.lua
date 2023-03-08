@@ -3,8 +3,8 @@
 pcall(require, "luarocks.loader")
 
 -- Standard awesome library
-local gears = require("gears")
-local awful = require("awful")
+local gears = require("gears") -- utilities such as color parsing and objects
+local awful = require("awful") -- everything related to window managment
 require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
@@ -246,19 +246,10 @@ globalkeys = gears.table.join(
         { description = "view next", group = "tag" }),
     awful.key({ modkey, }, "Escape", awful.tag.history.restore,
         { description = "go back", group = "tag" }),
-
-    awful.key({ modkey, }, "j",
-        function()
-            awful.client.focus.byidx(1)
-        end,
-        { description = "focus next by index", group = "client" }
-    ),
-    awful.key({ modkey, }, "k",
-        function()
-            awful.client.focus.byidx(-1)
-        end,
-        { description = "focus previous by index", group = "client" }
-    ),
+    awful.key({ modkey, }, "j", function() awful.client.focus.byidx(1) end,
+        { description = "focus next by index", group = "client" }),
+    awful.key({ modkey, }, "k", function() awful.client.focus.byidx(-1) end,
+        { description = "focus previous by index", group = "client" }),
     awful.key({ modkey, }, "w", function() mymainmenu:show() end,
         { description = "show main menu", group = "awesome" }),
 
@@ -305,7 +296,6 @@ globalkeys = gears.table.join(
         { description = "select next", group = "layout" }),
     awful.key({ modkey, "Shift" }, "space", function() awful.layout.inc(-1) end,
         { description = "select previous", group = "layout" }),
-
     awful.key({ modkey, "Control" }, "n",
         function()
             local c = awful.client.restore()
@@ -334,7 +324,10 @@ globalkeys = gears.table.join(
         { description = "lua execute prompt", group = "awesome" }),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-        { description = "show the menubar", group = "launcher" })
+        { description = "show the menubar", group = "launcher" }),
+    awful.key({ modkey }, "b", function() awful.util.spawn("firefox") end,
+        { description = "Launch browser", group = "launcher" })
+
 )
 
 clientkeys = gears.table.join(
@@ -396,6 +389,7 @@ for i = 1, 9 do
                 end
             end,
             { description = "view tag #" .. i, group = "tag" }),
+
         -- Toggle tag display.
         awful.key({ modkey, "Control" }, "#" .. i + 9,
             function()
@@ -406,6 +400,7 @@ for i = 1, 9 do
                 end
             end,
             { description = "toggle tag #" .. i, group = "tag" }),
+
         -- Move client to tag.
         awful.key({ modkey, "Shift" }, "#" .. i + 9,
             function()
@@ -417,6 +412,7 @@ for i = 1, 9 do
                 end
             end,
             { description = "move focused client to tag #" .. i, group = "tag" }),
+
         -- Toggle tag on focused client.
         awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
             function()
@@ -500,12 +496,13 @@ awful.rules.rules = {
         properties = { floating = true }
     },
 
+    -- To uncomment, check the default config for titlebar setup
     -- Add titlebars to normal clients and dialogs
-    {
-        rule_any = { type = { "normal", "dialog" }
-        },
-        properties = { titlebars_enabled = true }
-    },
+    --{
+    --    rule_any = { type = { "normal", "dialog" }
+    --    },
+    --    properties = { titlebars_enabled = true }
+    --},
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
@@ -528,50 +525,6 @@ client.connect_signal("manage", function(c)
     end
 end)
 
--- Add a titlebar if titlebars_enabled is set to true in the rules.
-client.connect_signal("request::titlebars", function(c)
-    -- buttons for the titlebar
-    local buttons = gears.table.join(
-        awful.button({}, 1, function()
-            c:emit_signal("request::activate", "titlebar", { raise = true })
-            awful.mouse.client.move(c)
-        end),
-        awful.button({}, 3, function()
-            c:emit_signal("request::activate", "titlebar", { raise = true })
-            awful.mouse.client.resize(c)
-        end)
-    )
-
-    awful.titlebar(c):setup {
-        {
-            -- Left
-            awful.titlebar.widget.iconwidget(c),
-            buttons = buttons,
-            layout  = wibox.layout.fixed.horizontal
-        },
-        {
-            -- Middle
-            {
-                -- Title
-                align  = "center",
-                widget = awful.titlebar.widget.titlewidget(c)
-            },
-            buttons = buttons,
-            layout  = wibox.layout.flex.horizontal
-        },
-        {
-            -- Right
-            awful.titlebar.widget.floatingbutton(c),
-            awful.titlebar.widget.maximizedbutton(c),
-            awful.titlebar.widget.stickybutton(c),
-            awful.titlebar.widget.ontopbutton(c),
-            awful.titlebar.widget.closebutton(c),
-            layout = wibox.layout.fixed.horizontal()
-        },
-        layout = wibox.layout.align.horizontal
-    }
-end)
-
 -- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", { raise = false })
@@ -580,3 +533,5 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+awful.spawn.with_shell("feh --randomize --bg-fill ~/Pictures/wallpapers/*")
