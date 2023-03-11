@@ -1,7 +1,7 @@
 */nvim/plugin/packer_compiled.lua
 
-.zcompdump
-.zshrc.zwc
+config/zsh/.zcompdump
+config/zsh/.zshrc.zwc
 
 config/dconf/*
 config/discord/*
@@ -19,3 +19,8 @@ config/gnome-initial-setup-done
 config/ibus/
 config/user-dirs.*
 config/spotify
+config/GIMP/
+config/QtProject.conf
+config/obs-studio/
+config/totem/
+config/vlc/
