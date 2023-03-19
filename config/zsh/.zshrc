@@ -32,7 +32,7 @@ bindkey -v
 # Control bindings for programs
 bindkey -s "^h" "history 1\n"
 bindkey -s "^l" "clear\n"
-bindkey -s "^f" "tmux-sessionizer\n"
+#bindkey -s "^f" "tmux-sessionizer\n"
 bindkey '^n' autosuggest-accept
 # Enable searching through history
 bindkey '^R' history-incremental-pattern-search-backward
@@ -89,11 +89,13 @@ precmd() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 sources=(
   'aliases'
   'smartdots'
+  'fzfit'
 )
 
 for s in "${sources[@]}"; do
   source $HOME/.config/zsh/include/${s}.zsh
 done
+bindkey -s "^f" "fzfit\n"
 
 source $HOME/.config/zsh/antigen/antigen.zsh
 antigen bundle zsh-users/zsh-completions
@@ -103,6 +105,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
 eval "$(starship init zsh)"
+#eval "$(pyenv init -)"
 
 #source /usr/share/zsh/plugins/spaceship/spaceship.zsh
 # Load zsh-syntax-highlighting
