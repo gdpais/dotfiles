@@ -11,6 +11,8 @@ return require('packer').startup(function(use)
     use "mbbill/undotree"
     use "machakann/vim-sandwich"
     use "folke/todo-comments.nvim"
+    --use "laytan/cloak.nvim" -- if ever need to hide something
+
 
     -- Focus
     use "folke/twilight.nvim"
@@ -79,13 +81,13 @@ return require('packer').startup(function(use)
         end
     })
     use "nvim-treesitter/playground"
+    use 'nvim-treesitter/nvim-treesitter-context'
     use { "norcalli/nvim-colorizer.lua", config = function() require 'colorizer'.setup() end }
 
     --Colorscheme
     --use "folke/tokyonight.nvim"
     use "tjdevries/colorbuddy.nvim"
     use "tjdevries/gruvbuddy.nvim"
-    -- Color example: gruvbody.nvim
 
     -- Debug adapter protocol
     use "mfussenegger/nvim-dap"
