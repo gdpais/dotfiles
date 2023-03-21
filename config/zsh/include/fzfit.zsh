@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
 fzfit() {
-    cd $(find ~/work ~/personal ~/personal/mynotebook ~/ ~/.config -mindepth 1 -maxdepth 1 -type d | fzf)
+    dir=$(find ~/work ~/personal ~/personal/mynotebook ~/ ~/.config -mindepth 1 -maxdepth 1 -type d | fzf)
+
+    if [[ -d $dir ]]; then
+        cd $dir
+    fi
 }

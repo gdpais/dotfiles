@@ -37,11 +37,10 @@ opt.backup = false
 opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.undofile = true
 -- split preferences
-opt.splitright = false
+opt.splitright = true
 opt.splitbelow = true
 
 -- Cool floating window popup menu for completion on command line
 opt.pumblend = 17
 opt.wildmode = "longest:full"
 opt.wildoptions = "pum"
-
