@@ -24,3 +24,7 @@ if [[ -f "$HOME/.zshenv" ]]; then
 fi
 
 ln -sv ~/personal/dotfiles/.zshenv ~/.zshenv
+
+sudo apt-get update && sudo apt-get install zsh
+
+chsh -s $(which zsh)
