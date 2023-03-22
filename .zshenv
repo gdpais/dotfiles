@@ -3,7 +3,6 @@ export EDITOR="nvim"
 export TERMINAL="kitty"
 export BROWSER="brave"
 export WM="awesome"
-#export SHELL="/usr/bin/zsh"
 
 export ZDOTDIR=$HOME/.config/zsh/
 export XDG_CONFIG_HOME=$HOME/.config/
