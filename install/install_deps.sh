@@ -4,7 +4,6 @@ set -e
 set -x
 
 mkdir -p ~/build
-# TODO: untested
 mkdir -p ~/.local/bin
 mkdir -p ~/.fonts
 
@@ -21,7 +20,6 @@ if ! [ -x "$(command -v cargo)" ]; then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
-# TODO: untested
 case ":${PATH}:" in
     *:"$HOME/.cargo/bin":*)
         ;;
@@ -31,10 +29,10 @@ case ":${PATH}:" in
         ;;
 esac
 
-# need to restart the shell to this work
 cargo install git-trim \
 	ripgrep \
-	starship
+	starship \
+	bat
 
 # Neovim
 if ! [ -d $HOME/build/neovim ]; then
@@ -62,5 +60,4 @@ if ! command -v kitty &> /dev/null ; then
     curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 fi
 
-# TODO: untested
 ln -sv ~/.local/kitty.app/bin/* ~/.local/bin
