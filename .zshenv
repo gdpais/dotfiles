@@ -24,4 +24,4 @@ PATH="${$(find ~/.local/bin -type d -printf %p:)%%:}:$PATH" #:$(find ~/.cargo/bi
 #        ;;
 #esac
 
-[ -d /usr/local/go/bin ] && PATH=$PATH:/usr/local/go/bin
+[ -d $HOME/go/bin ] && PATH=$PATH:$HOME/go/bin

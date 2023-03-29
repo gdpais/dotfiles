@@ -27,4 +27,5 @@ config/obs-studio/
 config/totem/
 config/vlc/
 config/VirtualBox/
-config/dooit/
+config/htop/
+config/libreoffice/
