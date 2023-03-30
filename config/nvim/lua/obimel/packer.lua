@@ -20,8 +20,10 @@ return require('packer').startup(function(use)
     }
     --use "laytan/cloak.nvim" -- if ever need to hide something
 
-    use "folke/zen-mode.nvim"
+
+    -- Focus
     use "folke/twilight.nvim"
+    use "folke/zen-mode.nvim"
 
     --Completion
     --use "onsails/lspkind-nvim"
