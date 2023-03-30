@@ -11,12 +11,17 @@ return require('packer').startup(function(use)
     use "mbbill/undotree"
     use "machakann/vim-sandwich"
     use "folke/todo-comments.nvim"
+    use {
+        "folke/trouble.nvim",
+        requires = "nvim-tree/nvim-web-devicons",
+        config = function()
+            require("trouble").setup()
+        end
+    }
     --use "laytan/cloak.nvim" -- if ever need to hide something
 
-
-    -- Focus
-    use "folke/twilight.nvim"
     use "folke/zen-mode.nvim"
+    use "folke/twilight.nvim"
 
     --Completion
     --use "onsails/lspkind-nvim"
@@ -66,10 +71,10 @@ return require('packer').startup(function(use)
     use "ThePrimeagen/git-worktree.nvim"
     use "sindrets/diffview.nvim"
     use "tpope/vim-fugitive"
-    --use "lewis6991/gitsigns.nvim"
+    use "lewis6991/gitsigns.nvim"
 
-    -- Database
-    use "tpope/vim-dadbod"
+    -- Databases
+    --use "tpope/vim-dadbod"
     --use "kristijanhusak/vim-dadbod-ui"
 
     --Highlighting
@@ -81,8 +86,8 @@ return require('packer').startup(function(use)
         end
     })
     use "nvim-treesitter/playground"
-    use 'nvim-treesitter/nvim-treesitter-context'
-    use { "norcalli/nvim-colorizer.lua", config = function() require 'colorizer'.setup() end }
+    use "nvim-treesitter/nvim-treesitter-context"
+    use { "norcalli/nvim-colorizer.lua" }
 
     --Colorscheme
     --use "folke/tokyonight.nvim"
