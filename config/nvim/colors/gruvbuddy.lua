@@ -1,6 +1,10 @@
-local Color, colors, Group, groups, styles = require('colorbuddy').setup()
+local ok, colorbuddy = pcall(require, "colorbuddy")
+if not ok then
+    return
+end
+local Color, colors, Group, groups, styles = colorbuddy.setup()
 
--- gruvbuddy (tjdevries/gruvbuddy)
+-- tjdevries/gruvbuddy :)
 Color.new('white', '#f2e5bc')
 Color.new('red', '#cc6666')
 Color.new('pink', '#fef601')

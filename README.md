@@ -1,6 +1,6 @@
 # My Dotfiles
 
-WIP :)
+WIP
 
 `config` == `$XDG_CONFIG_HOME`
 
@@ -10,11 +10,12 @@ WIP :)
 - i3 / awesome
 - polybar
 
-Scripts in `.local/bin/`
+Scripts in `.local/bin`
 
 ## Shoutouts
 
-A lot of stuff in this repo is based off code from really nice guys, so go check them out!!
+A lot of stuff here is based off code written by these guys, so make sure you **GIVE 'EM THE LOVE**
 
 - [TJ Devries](https://github.com/tjdevries)
 - [Theprimeagen](https://github.com/ThePrimeagen)
+- [Folke Lemaitre](https://github.com/folke)

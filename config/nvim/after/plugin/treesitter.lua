@@ -1,7 +1,11 @@
+if not pcall(require, "nvim-treesitter") then
+    return
+end
+local list = require("nvim-treesitter.parsers").get_parser_configs()
 require('nvim-treesitter.configs').setup {
     ensure_installed = {
         "go",
-        "help",
+        "vimdoc",
         "html",
         "javascript",
         "json",

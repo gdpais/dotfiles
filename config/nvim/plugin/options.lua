@@ -10,7 +10,7 @@ opt.termguicolors = true
 opt.showmode = false
 opt.showcmd = true
 opt.cmdheight = 1
-opt.showmatch = true
+opt.showmatch = false
 opt.completeopt = { "menu", "menuone", "noselect" }
 opt.shortmess:append "c"
 opt.updatetime = 1000
@@ -60,5 +60,4 @@ opt.formatoptions = opt.formatoptions
 -- on command line
 opt.pumblend = 17
 opt.wildmode = "longest:full"
-opt.wildoptions = "pum"
 opt.wildoptions = "pum"
