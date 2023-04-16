@@ -27,3 +27,12 @@ autocmd("BufWritePre", {
         }
     end
 })
+
+local highlight_group = augroup('YankHighlight', { clear = true })
+autocmd('TextYankPost', {
+    group = highlight_group,
+    pattern = '*',
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+})
