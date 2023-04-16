@@ -17,4 +17,12 @@ return {
         end
     },
     -- "laytan/cloak.nvim" -- if ever need to hide something
+
+    -- {
+    --     'lukas-reineke/indent-blankline.nvim',
+    --     opts = {
+    --         char = '┊',
+    --         show_trailing_blankline_indent = false,
+    --     },
+    -- },
 }
