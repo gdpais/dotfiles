@@ -4,7 +4,7 @@ return {
         priority = 100,
         config = function()
             require "obimel.telescope.setup"
-            require "obimel.telescope.keymaps"
+            require "obimel.telescope.keymap"
         end
     },
     "nvim-telescope/telescope-ui-select.nvim",
@@ -17,5 +17,5 @@ return {
         config = function()
             require('neoclip').setup()
         end,
-    }
+    },
 }
