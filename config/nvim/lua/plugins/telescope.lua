@@ -8,6 +8,7 @@ return {
         end
     },
     "nvim-telescope/telescope-ui-select.nvim",
+    "dhruvmanila/browser-bookmarks.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     {
         "AckslD/nvim-neoclip.lua",

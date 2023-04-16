@@ -72,6 +72,11 @@ require("telescope").setup({
                     },
                 },
             },
+            bookmarks = {
+                -- Provide the options here to override the default values.
+                -- ...
+                selected_browser = "firefox"
+            },
         },
     }
 })
@@ -81,3 +86,4 @@ _ = require("telescope").load_extension "dap"
 _ = require("telescope").load_extension "ui-select"
 _ = require("telescope").load_extension "git_worktree"
 _ = require("telescope").load_extension "neoclip"
+_ = require("telescope").load_extension "bookmarks"

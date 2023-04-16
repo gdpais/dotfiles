@@ -1,36 +1,46 @@
 local M = {}
 
---local themes = require "telescope.themes"
-
-function M.reload_modules()
-    -- stolen from prime/Tj <3
-    local lua_dirs = vim.fn.glob("./lua/*", 0, 1)
-    for _, dir in ipairs(lua_dirs) do
-        dir = string.gsub(dir, "./lua/", "")
-        require("plenary.reload").reload_module(dir)
-    end
-end
+local themes = require "telescope.themes"
 
 M.find_anything = function()
-    require("telescope.builtin").find_files({
+    require("telescope.builtin").find_files {
         hidden = true,
-    })
+    }
 end
 
 M.search_dotfiles = function()
-    require("telescope.builtin").find_files({
+    require("telescope.builtin").find_files {
         prompt_title = "< dotfiles >",
         cwd = "~/.config/",
         hidden = true,
-    })
+    }
 end
 
 M.search_nvim = function()
-    require("telescope.builtin").find_files({
-        prompt_title = "< neovim_cfg >",
+    require("telescope.builtin").find_files {
+        prompt_title = "< Neovim Cfg >",
         cwd = "~/.config/nvim",
         hidden = true,
-    })
+    }
+end
+
+M.nvim_source = function()
+    require("telescope.builtin").find_files {
+        prompt_title = "< Nvim Source >",
+        shorten_path = false,
+        cwd = "~/build/neovim/",
+
+        layout_strategy = "horizontal",
+        layout_config = {
+            preview_width = 0.35,
+        },
+    }
+end
+
+M.custom_plugins = function()
+    require("telescope.builtin").find_files {
+        cwd = "~/plugins/",
+    }
 end
 
 M.search_notebook = function()
@@ -58,12 +68,28 @@ end
 M.grep_str = function()
     require("telescope.builtin").grep_string {
         --previewer = false,
-        hide = true,
-        shorten_path = false,
+        shorten_path = true,
+        search = vim.fn.input "Grep String > "
     }
 end
 
--- git stuff
+M.oldfiles = function()
+    require("telescope.builtin").oldfiles {
+        previewer = false,
+    }
+end
+
+M.currbuf = function()
+    local opts = themes.get_dropdown {
+        winblend = 10,
+        previewer = false,
+        shorten_path = false,
+    }
+
+    require("telescope.builtin").current_buffer_fuzzy_find(opts)
+end
+
+-- Git
 M.git_branches = function()
     require("telescope.builtin").git_branches({
         attach_mappings = function(_, map)
@@ -75,18 +101,37 @@ M.git_branches = function()
 end
 
 M.git_files = function()
-    require("telescope.builtin").git_files()
+    local opts = themes.get_dropdown {
+        cwd = vim.fn.expand "%:h",
+        --cwd = vim.fn.expand "%:p:h",
+        shorten_path = false,
+        previewer = false,
+        winblend = 10,
+
+        layout_config = {
+            width = 0.5,
+        },
+    }
+
+    require("telescope.builtin").git_files(opts)
 end
 
 M.git_status = function()
-    require("telescope.builtin").git_status({
+    require("telescope.builtin").git_status {
         shorten_path = false,
-    })
+    }
 end
 
 M.git_commits = function()
     require("telescope.builtin").git_commits {
         winblend = 5,
+    }
+end
+
+-- Browser
+M.bookmarks = function()
+    require("telescope").extensions.bookmarks.bookmarks {
+        previewer = false
     }
 end
 

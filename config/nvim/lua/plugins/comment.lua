@@ -16,9 +16,11 @@ return {
                 extra = true,
             },
         }
+
         -- For not supported languages
         --local ft = require "Comment.ft"
         --ft.set("javascript", { "//%s", "/*%s*/" })
+        -- or
         --ft.javascript = { "//%s", "/*%s*/" }
     end
 }
