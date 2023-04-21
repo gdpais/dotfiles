@@ -33,14 +33,14 @@
 --    connection_error = '✕',
 --}
 
-local keymap = require('obimel.keymap')
-local nmap = keymap.nmap
-local vmap = keymap.vmap
--- add password
-local passwd = ""
-local url = "jdbc:sqlserver://localhost;encrypt=true;user=sa;password=" ..
-    passwd .. ";integratedSecurity=true;encrypt=true;trustServerCertificate=true;"
+-- local keymap = require('obimel.keymap')
+-- local nmap = keymap.nmap
+-- local vmap = keymap.vmap
+-- -- add password
+-- local passwd = ""
+-- local url = "jdbc:sqlserver://localhost;encrypt=true;user=sa;password=" ..
+--     passwd .. ";integratedSecurity=true;encrypt=true;trustServerCertificate=true;"
 
 --nmap { "<leader>db", function() vim.cmd('DBUIToggle') end }
-vmap { "<leader>db", ":'<,'>DB " .. url .. "<CR>" }
-nmap { "<leader>db", ":%DB " .. url .. "<CR>" }
+--vmap { "<leader>db", ":'<,'>DB " .. url .. "<CR>" }
+--nmap { "<leader>db", ":%DB " .. url .. "<CR>" }

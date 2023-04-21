@@ -8,7 +8,7 @@ nmap { "<leader>y", "<cmd>%yank<cr>", { desc = "yank entire buffer" } }
 vim.keymap.set("x", "<leader>pp", "\"_dP", { desc = "paste saving last register" })
 
 -- Rerun last command
-nmap { "<leader><leader>k", "<cmd><Up><CR>", { desc = "rerun last command", silent = false } }
+nmap { "<leader><leader>k", ":<Up><CR>", { desc = "rerun last command", silent = false } }
 
 -- Move lines
 vmap { "K", ":m '<-2<CR>gv=gv", { desc = "move line up" } }

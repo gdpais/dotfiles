@@ -1,6 +1,7 @@
 local M = {}
 
 local themes = require "telescope.themes"
+local actions = require "telescope.actions"
 
 M.find_anything = function()
     require("telescope.builtin").find_files {
