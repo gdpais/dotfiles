@@ -29,7 +29,7 @@ require("nvim-treesitter.configs").setup {
         "javascript",
         "json",
         "markdown",
-        --"ocaml",
+        --"ocaml", I'll come back for you :)
         "python",
         "query",
         "rust",
