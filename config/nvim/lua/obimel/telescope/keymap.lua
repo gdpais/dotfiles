@@ -7,6 +7,8 @@ local tel_search = require "obimel.telescope.search"
 local tel_builtin = require "telescope.builtin"
 local nmap = require("obimel.keymap").nmap
 
+-- nmap { "", tel_builtin.keymaps }
+--nmap { "", tel_builtin.builtin }
 nmap { "<leader>sh", tel_builtin.help_tags }
 nmap { "<leader>pd", tel_builtin.diagnostics }
 

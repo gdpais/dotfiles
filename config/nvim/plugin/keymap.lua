@@ -36,7 +36,7 @@ nmap { "<leader>ee", "<cmd>Lexplore<CR>", { desc = "Open Netrw in the working di
 nmap { "<leader>ec", "<cmd>Lexplore %:p:h<CR>", { desc = "Open Netrw in the dir of the current file" } }
 
 -- Window Split
-nmap { "<leader>w", "<cmd>vsplit<CR>", { desc = "split vertical" } }
+nmap { "<leader>W", "<cmd>vsplit<CR>", { desc = "split vertical" } }
 nmap { "<M-k>", "<C-W><C-H>", { desc = "move left window" } }
 nmap { "<M-j>", "<C-W><C-l>", { desc = "move right" } }
 nmap { "<M-h>", "<C-W>5<", { desc = "resize window horizontally <" } }

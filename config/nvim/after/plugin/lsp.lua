@@ -15,7 +15,7 @@ lsp.preset({
     name = 'minimal',
     set_lsp_keymaps = true,
     manage_nvim_cmp = true,
-    suggest_lsp_servers = true,
+    suggest_lsp_servers = false,
 })
 
 -- example to setup lua_ls and enable call snippets
@@ -29,7 +29,7 @@ lsp.configure("lua_ls", {
     }
 })
 
-local cmp = require('cmp')
+local cmp = require "cmp"
 local cmp_select = { behavior = cmp.SelectBehavior.Insert }
 local cmp_mappings = lsp.defaults.cmp_mappings({
     ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
@@ -42,7 +42,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<S-Tab>'] = vim.NIL,
     ['<CR>'] = vim.NIL
 })
-
 
 lsp.setup_nvim_cmp({
     mapping = cmp_mappings
@@ -67,25 +66,47 @@ lsp.set_preferences({
 local keymaps = require("obimel.keymap")
 local imap = keymaps.imap
 local nmap = keymaps.nmap
-
-lsp.on_attach(function(client, bufnr)
+local attach_func = function(_, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
     nmap { "K", vim.lsp.buf.hover, opts }
+    imap { "<C-h>", vim.lsp.buf.signature_help, opts }
+    nmap { "gs", vim.lsp.buf.signature_help, opts }
     nmap { "gd", vim.lsp.buf.definition, opts }
     nmap { "gD", vim.lsp.buf.declaration, opts }
-    nmap { "gt", vim.lsp.buf.type_definition, opts }
-    nmap { "gi", vim.lsp.buf.implementation, opts }
-    nmap { "gr", "<cmd>Telescope lsp_references<CR>", opts }
+    nmap { "<leader>D", vim.lsp.buf.type_definition, opts }
+    nmap { "gI", vim.lsp.buf.implementation, opts }
+    nmap { "gr", require("telescope.builtin").lsp_references, opts }
+
+    --Diagnostics (may move this later)
     nmap { "[d", vim.diagnostic.goto_prev, opts }
     nmap { "]d", vim.diagnostic.goto_next, opts }
+    nmap { "gl", vim.diagnostic.open_float, opts }
+    nmap { "<leader>ll", vim.diagnostic.setloclist, { desc = "Open diagnostics list" } }
+    --nmap { "<leader>dl", "<cmd>Telescope diagnostics<CR>", opts } configured in telescope => <leader>pd
+
     nmap { "<leader>r", vim.lsp.buf.rename, opts }
-    nmap { "<leader>dl", "<cmd>Telescope diagnostics<CR>", opts }
     nmap { "<leader>ca", vim.lsp.buf.code_action, opts }
+
     nmap { "<leader>ss", vim.lsp.buf.workspace_symbol, opts }
-    nmap { "<leader>sd", vim.diagnostic.open_float, opts }
-    imap { "<C-h>", vim.lsp.buf.signature_help, opts }
-end)
+    nmap { "<leader>ds", require("telescope.builtin").lsp_document_symbols, { desc = "[D]ocument [S]ymbols" } }
+    nmap { "<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, { desc = "[W]orkspace [S]ymbols" } } -- <leader>w already in use
+    --nmap { '<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder' }
+    --nmap { '<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder' }
+    --nmap { '<leader>wl', function()
+    --    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    --end, { desc = '[W]orkspace [L]ist Folders' } }
+
+    -- Create a command `:Format` local to the LSP buffer
+    -- vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+    --   vim.lsp.buf.format()
+    -- end, { desc = 'Format current buffer with LSP' })
+end
+
+lsp.on_attach(attach_func)
+require("sg").setup {
+    on_attach = attach_func
+}
 
 lsp.nvim_workspace()
 lsp.setup()
