@@ -59,7 +59,7 @@ dap.configurations.rust = {
 dap.configurations.c = dap.configurations.rust
 dap.configurations.cpp = dap.configurations.rust
 
--- require('dap-go').setup()
+require('dap-go').setup {}
 
 require("nvim-dap-virtual-text").setup {
     enabled = true,

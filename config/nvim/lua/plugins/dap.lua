@@ -4,5 +4,7 @@ return {
     "theHamsta/nvim-dap-virtual-text",
     "nvim-telescope/telescope-dap.nvim",
 
+    --langs
     "jbyuki/one-small-step-for-vimkind",
+    "leoluz/nvim-dap-go"
 }
