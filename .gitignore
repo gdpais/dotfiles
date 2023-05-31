@@ -30,3 +30,4 @@ config/VirtualBox/
 config/htop/
 config/libreoffice/
 config/dlv
+config/watson/*
