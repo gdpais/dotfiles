@@ -103,7 +103,9 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
 eval "$(starship init zsh)"
-#eval "$(pyenv init -)"
+eval "$(pyenv init -)"
+# opam configuration
+[[ ! -r /home/gabs/.opam/opam-init/init.zsh ]] || source /home/gabs/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 #source /usr/share/zsh/plugins/spaceship/spaceship.zsh
 # Load zsh-syntax-highlighting

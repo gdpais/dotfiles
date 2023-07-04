@@ -99,9 +99,9 @@ local attach_func = function(_, bufnr)
 end
 
 lsp.on_attach(attach_func)
-require("sg").setup {
+--[[ require("sg").setup {
     on_attach = attach_func
-}
+} ]]
 
 lsp.nvim_workspace()
 lsp.setup()

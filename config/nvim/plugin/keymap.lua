@@ -65,5 +65,3 @@ imap { "<F11>", "<c-o><cmd>set spell!<cr>", { desc = "toggle spell" } }
 
 --Exit insert mode
 imap { "<C-c>", "<ESC>", { desc = "exit insert mode" } }
---nmap { "o", "o<C-u>" }
---nmap { "O", "O<C-u>" }

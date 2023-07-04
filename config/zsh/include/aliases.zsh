@@ -16,6 +16,7 @@ alias q="~ && clear"
 
 # nvim
 alias n='nvim'
+alias nt='nvim .'
 alias nr='nvim -R'
 
 # ls

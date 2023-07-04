@@ -9,6 +9,7 @@ export XDG_CONFIG_HOME=$HOME/.config/
 export XDG_ENV_HOME=$HOME/
 export PYENV_ROOT="$HOME/.pyenv"
 export PNPM_HOME="$HOME/.local/share/pnpm"
+export SPRING_HOME="$HOME/.springboot/spring-3.1.0"
 
 # Adds scripts to $PATH
 command -v pyenv >/dev/null || export PATH="$HOME/.pyenv/bin:$PATH"
@@ -32,3 +33,5 @@ esac
 
 [ -d $HOME/go/bin ] && PATH=$PATH:$HOME/go/bin
 [ -d /usr/local/go/bin ] && PATH=$PATH:/usr/local/go/bin
+[ -d $HOME/.maven/bin ] && PATH=$PATH:$HOME/.maven/bin
+[ -d $SPRING_HOME/bin ] && PATH=$PATH:$SPRING_HOME/bin
